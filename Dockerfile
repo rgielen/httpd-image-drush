@@ -1,4 +1,4 @@
-FROM rgielen/httpd-image-simple
+FROM rgielen/httpd-image-php5:15.10
 MAINTAINER "Rene Gielen" <rgielen@apache.org>
 
 RUN apt-get update \
