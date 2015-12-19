@@ -26,8 +26,10 @@ if [ $(id -u) != 0 ]; then
   exit 1
 fi
 
-drupal_path=${1%/}
-drupal_user=${2}
+path_arg=${1:-$DRUPAL_DIR}
+
+drupal_path=${path_arg%/}
+drupal_user=${2:-$DRUPAL_USER}
 httpd_group="${3:-www-data}"
 
 # Parse Command Line Arguments
