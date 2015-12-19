@@ -21,7 +21,7 @@ ENV DRUPAL_DIR ${BASE_DIR}/${DRUPAL_PROJECT_NAME}
 ENV DRUPAL_MODULES_DIR ${DRUPAL_DIR}/sites/all/modules
 ENV DRUPAL_THEMES_DIR ${DRUPAL_DIR}/sites/all/themes
 ENV DRUPAL_FILES_DIR ${DRUPAL_DIR}/sites/default/files
-ENV DRUPAL_OWNER drupal
+ENV DRUPAL_USER drupal
 
-RUN groupadd -r ${DRUPAL_OWNER} && useradd -r -g ${DRUPAL_OWNER} ${DRUPAL_OWNER}
+RUN groupadd -r ${DRUPAL_USER} && useradd -r -g ${DRUPAL_USER} ${DRUPAL_USER}
 
