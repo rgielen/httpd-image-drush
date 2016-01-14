@@ -90,5 +90,9 @@ for x in ./*/files; do
   find ${x} -type d -exec chmod ug=rwx,o= '{}' \;
   find ${x} -type f -exec chmod ug=rw,o= '{}' \;
 done
+
+printf "Changing permissions of all special upload directories beginning with _ to "rwxrwx---"...\n"
+find . -type d -name "_*" -exec chmod ug=rwx,o= '{}' \;
+
 echo "Done setting proper permissions on files and directories"
 

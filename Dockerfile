@@ -13,7 +13,7 @@ RUN wget http://files.drush.org/drush.phar \
       && drush init \
       && echo "check_certificate=off" > ~/.wgetrc
 
-COPY scripts/fix-drupal-permissions.sh /usr/local/bin
+ADD scripts/fix-drupal-permissions.sh /usr/local/bin/
 
 ENV BASE_DIR /var
 ENV DRUPAL_PROJECT_NAME drupal
