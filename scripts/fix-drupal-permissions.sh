@@ -83,7 +83,12 @@ find . -type f -exec chmod u=rw,g=r,o= '{}' \;
 printf "Changing permissions of "files" directories in "${drupal_path}/sites" to "rwxrwx---"...\n"
 
 printf "Changing permissions of all special upload directories beginning with _ to "rwxrwx---"...\n"
-find . -type d -name "_*" -exec chmod ug=rwx,o= '{}' \;
+for x in ./_*; do
+  echo ${x}
+  chmod ug=rwx,o= ${x}
+  find ${x} -type d -exec chmod ug=rwx,o= '{}' \;
+  find ${x} -type f -exec chmod ug=rw,o= '{}' \;
+done
 
 cd sites
 find . -type d -name files -exec chmod ug=rwx,o= '{}' \;
