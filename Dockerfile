@@ -13,7 +13,7 @@ RUN wget http://files.drush.org/drush.phar \
       && php drush.phar core-status \
       && chmod +x drush.phar \
       && mv drush.phar /usr/local/bin/drush \
-      && drush init \
+      && drush init -y \
       && echo "check_certificate=off" > ~/.wgetrc
 
 ADD scripts/fix-drupal-permissions.sh /usr/local/bin/
