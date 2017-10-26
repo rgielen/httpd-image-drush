@@ -1,13 +1,13 @@
-FROM rgielen/httpd-image-php5:15.10
+FROM rgielen/httpd-image-php:latest
 MAINTAINER "Rene Gielen" <rgielen@apache.org>
 
 RUN apt-get update \
       && apt-get install -y --no-install-recommends \
-            php-pear git wget php5-curl libssh2-php php5-mysql php5-pgsql \
+            php-pear git wget php-mysql php-pgsql \
       && apt-get clean \
       && rm -rf /var/lib/apt/lists/* \
       && rm -rf /tmp/* \
-      && a2enmod rewrite php5
+      && a2enmod rewrite
 
 RUN wget http://files.drush.org/drush.phar \
       && php drush.phar core-status \
