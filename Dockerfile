@@ -1,4 +1,4 @@
-FROM rgielen/httpd-image-php:latest
+FROM rgielen/httpd-image-php:17.10
 MAINTAINER "Rene Gielen" <rgielen@apache.org>
 
 RUN apt-get update \
@@ -9,7 +9,7 @@ RUN apt-get update \
       && rm -rf /tmp/* \
       && a2enmod rewrite
 
-RUN wget http://files.drush.org/drush.phar \
+RUN wget -O drush.phar https://github.com/drush-ops/drush/releases/download/8.1.15/drush.phar \
       && php drush.phar core-status \
       && chmod +x drush.phar \
       && mv drush.phar /usr/local/bin/drush \
