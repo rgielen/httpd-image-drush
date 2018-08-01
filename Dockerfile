@@ -1,7 +1,7 @@
 FROM rgielen/httpd-image-php:17.10
 MAINTAINER "Rene Gielen" <rgielen@apache.org>
 
-ENV DRUSH_VERSION 8.1.15
+ENV DRUSH_VERSION 8.1.17
 
 RUN apt-get update \
       && apt-get install -y --no-install-recommends \
