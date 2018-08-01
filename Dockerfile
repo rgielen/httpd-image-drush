@@ -1,6 +1,8 @@
 FROM rgielen/httpd-image-php:17.10
 MAINTAINER "Rene Gielen" <rgielen@apache.org>
 
+ENV DRUSH_VERSION 8.1.15
+
 RUN apt-get update \
       && apt-get install -y --no-install-recommends \
             php-pear git wget php-mysql php-pgsql \
@@ -9,7 +11,7 @@ RUN apt-get update \
       && rm -rf /tmp/* \
       && a2enmod rewrite
 
-RUN wget -O drush.phar https://github.com/drush-ops/drush/releases/download/8.1.15/drush.phar \
+RUN wget -O drush.phar https://github.com/drush-ops/drush/releases/download/$DRUSH_VERSION/drush.phar \
       && php drush.phar core-status \
       && chmod +x drush.phar \
       && mv drush.phar /usr/local/bin/drush \
