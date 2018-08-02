@@ -1,4 +1,4 @@
-FROM rgielen/httpd-image-php:17.10
+FROM rgielen/httpd-image-php:18.04
 MAINTAINER "Rene Gielen" <rgielen@apache.org>
 
 ENV DRUSH_VERSION 8.1.17
